@@ -45,7 +45,7 @@ version.txt          {ver}-filelist.json           HTTP check
 ├── icon-48.png          # Extension icon (48x48)
 ├── icon-128.png         # Extension icon (128x128)
 ├── .gitignore           # Ignored files
-└── LICENSE              # The Unlicense (public domain)
+└── LICENSE              # MIT License
 ```
 
 ## Installation
