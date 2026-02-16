@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Static Asset Monitor</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+        <path d="M2 17l10 5 10-5"/>
+        <path d="M2 12l10 5 10-5"/>
+      </svg>
+      Static Asset Monitor
+    </div>
+    <div class="navbar-actions">
+      <label class="theme-toggle" title="Toggle theme">
+        <input type="checkbox" id="themeToggle">
+        <span class="theme-toggle-slider"></span>
+      </label>
+      <a href="settings.html" class="btn-icon" title="Settings">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="3"/>
+          <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+        </svg>
+      </a>
+    </div>
+  </nav>
+
+  <div class="container page-content">
+    <!-- Endpoints -->
+    <div class="section" style="margin-top: 0;">
+      <div class="section-header">
+        <h2 class="section-title">Endpoints</h2>
+        <div class="flex gap-12">
+          <a href="monitor.html" class="btn btn-primary" id="monitorAllBtn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="5 3 19 12 5 21 5 3"/>
+            </svg>
+            Monitor All
+          </a>
+          <a href="settings.html?add=true" class="btn btn-secondary">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="12" y1="5" x2="12" y2="19"/>
+              <line x1="5" y1="12" x2="19" y2="12"/>
+            </svg>
+            Add Endpoint
+          </a>
+        </div>
+      </div>
+
+      <div class="grid grid-2" id="endpointGrid"></div>
+
+      <div class="empty-state hidden" id="emptyState">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+          <path d="M2 17l10 5 10-5"/>
+          <path d="M2 12l10 5 10-5"/>
+        </svg>
+        <h3>No endpoints configured</h3>
+        <p>Add your CDN endpoints in Settings to start monitoring.</p>
+        <a href="settings.html?add=true" class="btn btn-primary">Go to Settings</a>
+      </div>
+    </div>
+
+    <!-- Recent Errors -->
+    <div class="section">
+      <div class="section-header">
+        <h2 class="section-title">Recent Errors</h2>
+        <button class="btn btn-sm btn-secondary" id="clearErrorsBtn">Clear All</button>
+      </div>
+      <div class="card" id="errorSection" style="padding: 0;">
+        <div id="errorList">
+          <p class="text-muted text-center" style="padding: 32px;">No errors recorded.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="storage.js"></script>
+  <script src="theme.js"></script>
+  <script src="dashboard.js"></script>
+</body>
+</html>

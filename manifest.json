@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "Static Asset Monitor",
+  "version": "1.0.0",
+  "description": "Open-source browser extension to monitor the availability of static assets across CDN endpoints. Configure your own endpoints and track uptime.",
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": [
+    "storage",
+    "notifications"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "icons": {
+    "48": "icon-48.png",
+    "128": "icon-128.png"
+  },
+  "action": {
+    "default_icon": {
+      "48": "icon-48.png",
+      "128": "icon-128.png"
+    },
+    "default_title": "Static Asset Monitor"
+  }
+}

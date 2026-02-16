@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Monitor - Static Asset Monitor</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a href="dashboard.html" class="btn-icon" title="Back to Dashboard">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M19 12H5M12 19l-7-7 7-7"/>
+        </svg>
+      </a>
+      Monitor All Endpoints
+    </div>
+    <div class="navbar-actions">
+      <button class="btn btn-danger hidden" id="stopAllBtn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="6" y="6" width="12" height="12"/>
+        </svg>
+        Stop
+      </button>
+      <label class="theme-toggle" title="Toggle theme">
+        <input type="checkbox" id="themeToggle">
+        <span class="theme-toggle-slider"></span>
+      </label>
+    </div>
+  </nav>
+
+  <div class="container page-content">
+    <!-- Overall Stats -->
+    <div class="grid grid-2 mb-24">
+      <div class="stat-card stat-success">
+        <div class="stat-value" id="overallSuccess">0</div>
+        <div class="stat-label">Total Successful</div>
+      </div>
+      <div class="stat-card stat-error">
+        <div class="stat-value" id="overallFailed">0</div>
+        <div class="stat-label">Total Failed</div>
+      </div>
+    </div>
+
+    <!-- Endpoint Sections -->
+    <div id="endpointSections"></div>
+
+    <div class="empty-state hidden" id="emptyState">
+      <h3>No endpoints configured</h3>
+      <p>Add endpoints in Settings first.</p>
+      <a href="settings.html?add=true" class="btn btn-primary">Go to Settings</a>
+    </div>
+
+    <!-- Cycle Info -->
+    <div class="card mt-24 hidden" id="cycleInfo">
+      <div class="flex items-center justify-between">
+        <span class="text-muted">Next cycle in: <strong id="cycleCountdown">--</strong></span>
+        <span class="badge badge-info" id="cycleCount">Cycle 1</span>
+      </div>
+    </div>
+  </div>
+
+  <script src="storage.js"></script>
+  <script src="scanner.js"></script>
+  <script src="theme.js"></script>
+  <script src="monitor.js"></script>
+</body>
+</html>
